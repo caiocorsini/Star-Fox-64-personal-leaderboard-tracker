@@ -117,9 +117,10 @@ class RecorderApp:
         self.name_entry = tk.Entry(right)
         self.name_entry.grid(row=1, column=1, sticky='we')
 
-        tk.Label(right, text="Score:").grid(row=2, column=0, sticky='w')
-        self.score_entry = tk.Entry(right)
-        self.score_entry.grid(row=2, column=1, sticky='we')
+        # Per-level score inputs (generated dynamically)
+        self.levels_frame = tk.Frame(right)
+        self.levels_frame.grid(row=2, column=0, columnspan=2, sticky='we')
+        self.level_entries = []
 
         self.add_btn = tk.Button(right, text="Add Score", command=self.add_score)
         self.add_btn.grid(row=3, column=0, columnspan=2, pady=6)
@@ -154,6 +155,7 @@ class RecorderApp:
 
         entries = self.data["paths"].get(path, {}).get(diff, [])
 
+        # update top-10 display
         self.text.config(state=tk.NORMAL)
         self.text.delete('1.0', tk.END)
         if not entries:
@@ -165,6 +167,19 @@ class RecorderApp:
                 self.text.insert(tk.END, f"{i}. {name}: {score}\n")
         self.text.config(state=tk.DISABLED)
 
+        # update per-level inputs based on selected path
+        for w in self.levels_frame.winfo_children():
+            w.destroy()
+        self.level_entries = []
+        levels = path.split(' > ')
+        for i, lvl in enumerate(levels):
+            lbl = tk.Label(self.levels_frame, text=f"{lvl}:")
+            lbl.grid(row=i, column=0, sticky='w', padx=(0,6), pady=2)
+            ent = tk.Entry(self.levels_frame)
+            ent.grid(row=i, column=1, sticky='we', pady=2)
+            self.levels_frame.grid_columnconfigure(1, weight=1)
+            self.level_entries.append(ent)
+
     def add_score(self):
         sel = self.lb.curselection()
         if not sel:
@@ -173,14 +188,19 @@ class RecorderApp:
         path = self.lb.get(sel[0])
         diff = self.diff_var.get()
         name = self.name_entry.get().strip()
-        score_text = self.score_entry.get().strip()
-        if not score_text.isdigit():
-            messagebox.showwarning("Invalid score", "Please enter a numeric score.")
-            return
-        score = int(score_text)
+        # validate per-level inputs (mandatory)
+        level_vals = []
+        for ent in self.level_entries:
+            txt = ent.get().strip()
+            if txt == '' or not txt.lstrip('-').isdigit():
+                messagebox.showwarning("Invalid input", "Please enter a numeric score for every level.")
+                return
+            level_vals.append(int(txt))
+
+        total = sum(level_vals)
 
         entries = self.data["paths"][path][diff]
-        entries.append({"name": name, "score": score})
+        entries.append({"name": name, "score": total, "levels": level_vals})
         # sort by score desc
         entries.sort(key=lambda x: x.get('score', 0), reverse=True)
         # keep top 10
