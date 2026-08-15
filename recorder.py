@@ -8,6 +8,7 @@ from tkinter import messagebox
 CSV_NAME = "Star Fox 64 - All Possible Routes - Sheet1.csv"
 JSON_NAME = "sf64_records.json"
 DIFFICULTIES = ["easy", "normal", "expert"]
+VERSIONS = ["n64", "3ds", "switch 2"]
 
 
 def load_paths(csv_path):
@@ -113,6 +114,11 @@ class RecorderApp:
         self.diff_menu = tk.OptionMenu(right, self.diff_var, *DIFFICULTIES, command=lambda e: self.refresh_display())
         self.diff_menu.grid(row=0, column=1, sticky='w')
 
+        tk.Label(right, text="Version:").grid(row=0, column=2, sticky='w', padx=(10,0))
+        self.version_var = tk.StringVar(value=VERSIONS[0])
+        self.version_menu = tk.OptionMenu(right, self.version_var, *VERSIONS)
+        self.version_menu.grid(row=0, column=3, sticky='w')
+
         tk.Label(right, text="Player name (optional):").grid(row=1, column=0, sticky='w')
         self.name_entry = tk.Entry(right)
         self.name_entry.grid(row=1, column=1, sticky='we')
@@ -161,10 +167,14 @@ class RecorderApp:
         if not entries:
             self.text.insert(tk.END, "(no scores yet)\n")
         else:
-            for i, e in enumerate(entries, start=1):
-                name = e.get('name') or '—'
-                score = e.get('score')
-                self.text.insert(tk.END, f"{i}. {name}: {score}\n")
+                for i, e in enumerate(entries, start=1):
+                    name = e.get('name') or '—'
+                    score = e.get('score')
+                    ver = e.get('version')
+                    if ver:
+                        self.text.insert(tk.END, f"{i}. {name} [{ver}]: {score}\n")
+                    else:
+                        self.text.insert(tk.END, f"{i}. {name}: {score}\n")
         self.text.config(state=tk.DISABLED)
 
         # update per-level inputs based on selected path
@@ -200,7 +210,9 @@ class RecorderApp:
         total = sum(level_vals)
 
         entries = self.data["paths"][path][diff]
-        entries.append({"name": name, "score": total, "levels": level_vals})
+        version = getattr(self, 'version_var', None)
+        version_val = version.get() if version is not None else None
+        entries.append({"name": name, "score": total, "levels": level_vals, "version": version_val})
         # sort by score desc
         entries.sort(key=lambda x: x.get('score', 0), reverse=True)
         # keep top 10
