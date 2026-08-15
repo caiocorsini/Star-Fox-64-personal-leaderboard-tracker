@@ -48,13 +48,32 @@ def load_data(json_path, paths):
     else:
         data = {"paths": {}}
 
-    # ensure all paths exist with difficulties
+    # ensure all paths exist with difficulties and versions (migrate old shape if needed)
     for p in paths:
-        if p not in data["paths"]:
-            data["paths"][p] = {d: [] for d in DIFFICULTIES}
+        if p not in data.get("paths", {}):
+            data.setdefault("paths", {})[p] = {d: {v: [] for v in VERSIONS} for d in DIFFICULTIES}
         else:
+            pdata = data.setdefault("paths", {})[p]
             for d in DIFFICULTIES:
-                data["paths"][p].setdefault(d, [])
+                if d not in pdata:
+                    pdata[d] = {v: [] for v in VERSIONS}
+                else:
+                    # migrate older list-format (difficulty -> [entries]) into difficulty -> version -> [entries]
+                    if isinstance(pdata[d], list):
+                        old_list = pdata[d]
+                        pdata[d] = {v: [] for v in VERSIONS}
+                        for e in old_list:
+                            if isinstance(e, dict):
+                                ver = e.get('version')
+                                if ver not in VERSIONS:
+                                    ver = VERSIONS[0]
+                            else:
+                                ver = VERSIONS[0]
+                            pdata[d].setdefault(ver, []).append(e)
+                    else:
+                        # ensure per-version lists exist
+                        for v in VERSIONS:
+                            pdata[d].setdefault(v, [])
 
     return data
 
@@ -159,7 +178,13 @@ class RecorderApp:
         path = self.lb.get(sel[0])
         diff = self.diff_var.get()
 
-        entries = self.data["paths"].get(path, {}).get(diff, [])
+        pdata = self.data.get("paths", {}).get(path, {})
+        diff_bucket = pdata.get(diff, {})
+        version_val = getattr(self, 'version_var', None).get() if getattr(self, 'version_var', None) is not None else None
+        if isinstance(diff_bucket, dict):
+            entries = diff_bucket.get(version_val, [])
+        else:
+            entries = []
 
         # update top-10 display
         self.text.config(state=tk.NORMAL)
@@ -209,14 +234,14 @@ class RecorderApp:
 
         total = sum(level_vals)
 
-        entries = self.data["paths"][path][diff]
+        # append to the specific difficulty+version leaderboard
         version = getattr(self, 'version_var', None)
         version_val = version.get() if version is not None else None
+        entries = self.data.setdefault("paths", {}).setdefault(path, {}).setdefault(diff, {}).setdefault(version_val, [])
         entries.append({"name": name, "score": total, "levels": level_vals, "version": version_val})
-        # sort by score desc
+        # sort by score desc and keep top 10 for this difficulty+version
         entries.sort(key=lambda x: x.get('score', 0), reverse=True)
-        # keep top 10
-        self.data["paths"][path][diff] = entries[:10]
+        self.data["paths"][path][diff][version_val] = entries[:10]
         save_data(self.json_path, self.data)
         messagebox.showinfo("Saved", "Score saved and leaderboard updated.")
         self.refresh_display()
