@@ -135,7 +135,7 @@ class RecorderApp:
 
         tk.Label(right, text="Version:").grid(row=0, column=2, sticky='w', padx=(10,0))
         self.version_var = tk.StringVar(value=VERSIONS[0])
-        self.version_menu = tk.OptionMenu(right, self.version_var, *VERSIONS)
+        self.version_menu = tk.OptionMenu(right, self.version_var, *VERSIONS, command=lambda e: self.refresh_display())
         self.version_menu.grid(row=0, column=3, sticky='w')
 
         tk.Label(right, text="Player name (optional):").grid(row=1, column=0, sticky='w')
@@ -186,20 +186,29 @@ class RecorderApp:
         else:
             entries = []
 
+        # prepare level names for display
+        level_names = path.split(' > ')
+
         # update top-10 display
         self.text.config(state=tk.NORMAL)
         self.text.delete('1.0', tk.END)
         if not entries:
             self.text.insert(tk.END, "(no scores yet)\n")
         else:
-                for i, e in enumerate(entries, start=1):
-                    name = e.get('name') or '—'
-                    score = e.get('score')
-                    ver = e.get('version')
-                    if ver:
-                        self.text.insert(tk.END, f"{i}. {name} [{ver}]: {score}\n")
-                    else:
-                        self.text.insert(tk.END, f"{i}. {name}: {score}\n")
+            for i, e in enumerate(entries, start=1):
+                name = e.get('name') or '—'
+                score = e.get('score')
+                levels = e.get('levels') or []
+                # pair level names with scores when possible
+                if levels and len(levels) == len(level_names):
+                    pairs = [f"{ln}: {sc}" for ln, sc in zip(level_names, levels)]
+                    level_str = ' | ' + ', '.join(pairs)
+                elif levels:
+                    level_str = ' | levels: ' + ', '.join(str(x) for x in levels)
+                else:
+                    level_str = ''
+                # do not show console/version here per request
+                self.text.insert(tk.END, f"{i}. {name}: {score}{level_str}\n")
         self.text.config(state=tk.DISABLED)
 
         # update per-level inputs based on selected path
