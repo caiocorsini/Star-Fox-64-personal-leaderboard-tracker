@@ -10,6 +10,12 @@ CSV_NAME = "Star Fox 64 - All Possible Routes - Sheet1.csv"
 JSON_NAME = "sf64_records.json"
 DIFFICULTIES = ["easy", "normal", "expert"]
 VERSIONS = ["n64", "3ds", "switch 2"]
+SPECIAL_PATH_NAME = "All Levels (3DS / Switch 2)"
+SPECIAL_LEVELS = [
+    "Corneria", "Meteo", "Sector Y", "Fichina", "Katina", "Aquas",
+    "Zoness", "Sector X", "Titania", "Solar", "Macbeth", "Sector Z",
+    "Area 6", "Venom 1", "Venom 2"
+]
 # Map each version to available difficulties
 VERSION_DIFFICULTIES = {
     "n64": ["normal", "expert"],
@@ -45,6 +51,7 @@ def load_paths(csv_path):
                     paths.append(path_str)
     except FileNotFoundError:
         return []
+    paths.append(SPECIAL_PATH_NAME)
     return paths
 
 
@@ -60,6 +67,8 @@ def load_data(json_path, paths):
         if p not in data.get("paths", {}):
             data.setdefault("paths", {})[p] = {}
             for v in VERSIONS:
+                if p == SPECIAL_PATH_NAME and v == "n64":
+                    continue
                 data["paths"][p][v] = {}
                 for d in VERSION_DIFFICULTIES.get(v, []):
                     data["paths"][p][v][d] = []
@@ -93,6 +102,9 @@ def load_data(json_path, paths):
                         del pdata[d]
             # ensure only valid difficulty+version combinations exist
             for v in VERSIONS:
+                if p == SPECIAL_PATH_NAME and v == "n64":
+                    pdata.pop(v, None)
+                    continue
                 valid_diffs = VERSION_DIFFICULTIES.get(v, [])
                 for d in list(pdata.get(v, {}).keys()):
                     if d not in valid_diffs:
@@ -114,13 +126,14 @@ class RecorderApp:
         self.csv_path = csv_path
         self.json_path = json_path
 
-        self.paths = load_paths(csv_path)
-        if not self.paths:
+        self.all_paths = load_paths(csv_path)
+        if not self.all_paths:
             messagebox.showerror("CSV not found", f"Could not find CSV: {csv_path}")
             root.destroy()
             return
 
-        self.data = load_data(json_path, self.paths)
+        self.paths = self.all_paths[:]
+        self.data = load_data(json_path, self.all_paths)
 
         root.title("Star Fox 64 Record Recorder")
 
@@ -140,9 +153,6 @@ class RecorderApp:
         hscroll = tk.Scrollbar(list_frame, orient=tk.HORIZONTAL, command=self.lb.xview)
         hscroll.pack(side=tk.BOTTOM, fill=tk.X)
         self.lb.config(yscrollcommand=vscroll.set, xscrollcommand=hscroll.set)
-
-        for p in self.paths:
-            self.lb.insert(tk.END, p)
 
         self.lb.bind('<<ListboxSelect>>', lambda e: self.refresh_display())
 
@@ -181,9 +191,6 @@ class RecorderApp:
 
         self.right.grid_columnconfigure(1, weight=1)
 
-        # select first
-        if self.paths:
-            self.lb.selection_set(0)
         self.update_difficulties()
 
     def randomize(self):
@@ -196,10 +203,26 @@ class RecorderApp:
         self.refresh_display()
         messagebox.showinfo("Random Path", f"Selected: {self.paths[idx]}")
 
+    def update_path_list(self):
+        """Show the special path only on consoles that support it."""
+        version = self.version_var.get()
+        self.paths = [
+            path for path in self.all_paths
+            if path != SPECIAL_PATH_NAME or version in ("3ds", "switch 2")
+        ]
+        self.lb.delete(0, tk.END)
+        for path in self.paths:
+            self.lb.insert(tk.END, path)
+        if self.paths:
+            self.lb.selection_set(0)
+            self.lb.see(0)
+
     def update_difficulties(self):
         """Update the difficulty dropdown based on selected version."""
         version = self.version_var.get()
         available_diffs = VERSION_DIFFICULTIES.get(version, ["normal", "expert"])
+
+        self.update_path_list()
         
         # Recreate the difficulty dropdown with only available options
         self.diff_menu.destroy()
@@ -230,8 +253,8 @@ class RecorderApp:
             else:
                 entries = []
 
-        # prepare level names for display
-        level_names = path.split(' > ')
+        # prepare level names for display; the special path has separate Venom 1 and Venom 2
+        level_names = SPECIAL_LEVELS if path == SPECIAL_PATH_NAME else path.split(' > ')
 
         # update top-10 display
         self.text.config(state=tk.NORMAL)
@@ -261,7 +284,7 @@ class RecorderApp:
         for w in self.levels_frame.winfo_children():
             w.destroy()
         self.level_entries = []
-        levels = path.split(' > ')
+        levels = level_names
         for i, lvl in enumerate(levels):
             lbl = tk.Label(self.levels_frame, text=f"{lvl}:")
             lbl.grid(row=i, column=0, sticky='w', padx=(0,6), pady=2)
