@@ -14,7 +14,7 @@ SPECIAL_PATH_NAME = "All Levels (3DS / Switch 2)"
 SPECIAL_LEVELS = [
     "Corneria", "Meteo", "Sector Y", "Fichina", "Katina", "Aquas",
     "Zoness", "Sector X", "Titania", "Solar", "Macbeth", "Sector Z",
-    "Area 6", "Venom 1", "Venom 2"
+    "Bolse", "Area 6", "Venom 1", "Venom 2"
 ]
 # Map each version to available difficulties
 VERSION_DIFFICULTIES = {
