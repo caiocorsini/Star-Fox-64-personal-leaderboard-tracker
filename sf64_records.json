@@ -1,0 +1,850 @@
+{
+  "paths": {
+    "Corneria > Meteo > Fichina > Sector X > Titania > Bolse > Venom": {
+      "n64": {
+        "normal": [
+          {
+            "name": "Caio",
+            "score": 1192,
+            "levels": [
+              180,
+              277,
+              68,
+              202,
+              156,
+              143,
+              166
+            ],
+            "version": "n64",
+            "recorded_at": "2026-08-16T22:46:48.957347"
+          }
+        ],
+        "expert": []
+      },
+      "3ds": {
+        "normal": [
+          {
+            "name": "Caio",
+            "score": 1203,
+            "levels": [
+              171,
+              243,
+              67,
+              224,
+              173,
+              155,
+              170
+            ],
+            "version": "3ds",
+            "recorded_at": "2026-08-16T21:53:56.566562"
+          }
+        ],
+        "expert": []
+      },
+      "switch 2": {
+        "easy": [
+          {
+            "name": "Caio",
+            "score": 1501,
+            "levels": [
+              189,
+              416,
+              76,
+              249,
+              176,
+              151,
+              244
+            ],
+            "version": "switch 2",
+            "recorded_at": "2026-08-29T18:52:13.805810"
+          }
+        ],
+        "normal": [
+          {
+            "name": "Caio",
+            "score": 1550,
+            "levels": [
+              207,
+              410,
+              79,
+              271,
+              173,
+              157,
+              253
+            ],
+            "version": "switch 2",
+            "recorded_at": "2026-09-06T00:39:43.248794"
+          },
+          {
+            "name": "Caio",
+            "score": 1504,
+            "levels": [
+              178,
+              393,
+              76,
+              258,
+              189,
+              154,
+              256
+            ],
+            "version": "switch 2",
+            "recorded_at": "2026-08-16T22:45:36.561493"
+          }
+        ],
+        "expert": []
+      }
+    },
+    "Corneria > Meteo > Fichina > Sector X > Macbeth > Bolse > Venom": {
+      "n64": {
+        "normal": [],
+        "expert": []
+      },
+      "3ds": {
+        "normal": [],
+        "expert": []
+      },
+      "switch 2": {
+        "easy": [],
+        "normal": [
+          {
+            "name": "Caio",
+            "score": 1602,
+            "levels": [
+              202,
+              423,
+              77,
+              281,
+              201,
+              157,
+              261
+            ],
+            "version": "switch 2",
+            "recorded_at": "2026-09-06T13:52:23.846845"
+          }
+        ],
+        "expert": []
+      }
+    },
+    "Corneria > Meteo > Fichina > Sector X > Macbeth > Area 6 > Venom": {
+      "n64": {
+        "normal": [],
+        "expert": []
+      },
+      "3ds": {
+        "normal": [],
+        "expert": []
+      },
+      "switch 2": {
+        "easy": [],
+        "normal": [
+          {
+            "name": "Caio",
+            "score": 1940,
+            "levels": [
+              216,
+              416,
+              73,
+              284,
+              206,
+              518,
+              227
+            ],
+            "version": "switch 2",
+            "recorded_at": "2026-09-06T20:10:44.737119"
+          },
+          {
+            "name": "Caio",
+            "score": 1784,
+            "levels": [
+              186,
+              376,
+              77,
+              266,
+              186,
+              466,
+              227
+            ],
+            "version": "switch 2"
+          }
+        ],
+        "expert": []
+      }
+    },
+    "Corneria > Meteo > Fichina > Sector X > Sector Z > Bolse > Venom": {
+      "n64": {
+        "normal": [],
+        "expert": []
+      },
+      "3ds": {
+        "normal": [],
+        "expert": []
+      },
+      "switch 2": {
+        "easy": [],
+        "normal": [],
+        "expert": []
+      }
+    },
+    "Corneria > Meteo > Fichina > Sector X > Sector Z > Area 6 > Venom": {
+      "n64": {
+        "normal": [],
+        "expert": []
+      },
+      "3ds": {
+        "normal": [
+          {
+            "name": "Caio",
+            "score": 1457,
+            "levels": [
+              169,
+              298,
+              66,
+              203,
+              104,
+              390,
+              227
+            ],
+            "version": "3ds",
+            "recorded_at": "2026-08-18T14:58:58.758442"
+          }
+        ],
+        "expert": []
+      },
+      "switch 2": {
+        "easy": [],
+        "normal": [],
+        "expert": []
+      }
+    },
+    "Corneria > Meteo > Fichina > Solar > Macbeth > Bolse > Venom": {
+      "n64": {
+        "normal": [],
+        "expert": []
+      },
+      "3ds": {
+        "normal": [],
+        "expert": []
+      },
+      "switch 2": {
+        "easy": [],
+        "normal": [],
+        "expert": []
+      }
+    },
+    "Corneria > Meteo > Fichina > Solar > Macbeth > Area 6 > Venom": {
+      "n64": {
+        "normal": [],
+        "expert": []
+      },
+      "3ds": {
+        "normal": [],
+        "expert": []
+      },
+      "switch 2": {
+        "easy": [],
+        "normal": [
+          {
+            "name": "Caio",
+            "score": 1753,
+            "levels": [
+              196,
+              409,
+              77,
+              127,
+              195,
+              522,
+              227
+            ],
+            "version": "switch 2",
+            "recorded_at": "2026-09-01T00:52:51.375480"
+          }
+        ],
+        "expert": []
+      }
+    },
+    "Corneria > Meteo > Katina > Sector X > Titania > Bolse > Venom": {
+      "n64": {
+        "normal": [],
+        "expert": []
+      },
+      "3ds": {
+        "normal": [],
+        "expert": []
+      },
+      "switch 2": {
+        "easy": [],
+        "normal": [],
+        "expert": [
+          {
+            "name": "Caio",
+            "score": 1613,
+            "levels": [
+              209,
+              424,
+              77,
+              258,
+              188,
+              193,
+              264
+            ],
+            "version": "switch 2",
+            "recorded_at": "2026-09-06T22:31:48.216427"
+          }
+        ]
+      }
+    },
+    "Corneria > Meteo > Katina > Sector X > Macbeth > Bolse > Venom": {
+      "n64": {
+        "normal": [],
+        "expert": []
+      },
+      "3ds": {
+        "normal": [],
+        "expert": []
+      },
+      "switch 2": {
+        "easy": [],
+        "normal": [],
+        "expert": []
+      }
+    },
+    "Corneria > Meteo > Katina > Sector X > Macbeth > Area 6 > Venom": {
+      "n64": {
+        "normal": [],
+        "expert": []
+      },
+      "3ds": {
+        "normal": [],
+        "expert": []
+      },
+      "switch 2": {
+        "easy": [],
+        "normal": [
+          {
+            "name": "Caio",
+            "score": 2102,
+            "levels": [
+              203,
+              418,
+              261,
+              276,
+              200,
+              517,
+              227
+            ],
+            "version": "switch 2",
+            "recorded_at": "2026-09-05T23:49:45.795395"
+          },
+          {
+            "name": "Caio",
+            "score": 2001,
+            "levels": [
+              190,
+              409,
+              215,
+              260,
+              193,
+              507,
+              227
+            ],
+            "version": "switch 2",
+            "recorded_at": "2026-08-23T01:18:57.152868"
+          },
+          {
+            "name": "Caio",
+            "score": 1923,
+            "levels": [
+              181,
+              377,
+              207,
+              247,
+              194,
+              490,
+              227
+            ],
+            "version": "switch 2"
+          }
+        ],
+        "expert": []
+      }
+    },
+    "Corneria > Meteo > Katina > Sector X > Sector Z > Bolse > Venom": {
+      "n64": {
+        "normal": [],
+        "expert": []
+      },
+      "3ds": {
+        "normal": [],
+        "expert": []
+      },
+      "switch 2": {
+        "easy": [],
+        "normal": [],
+        "expert": []
+      }
+    },
+    "Corneria > Meteo > Katina > Sector X > Sector Z > Area 6 > Venom": {
+      "n64": {
+        "normal": [],
+        "expert": []
+      },
+      "3ds": {
+        "normal": [],
+        "expert": []
+      },
+      "switch 2": {
+        "easy": [],
+        "normal": [],
+        "expert": []
+      }
+    },
+    "Corneria > Meteo > Katina > Solar > Macbeth > Bolse > Venom": {
+      "n64": {
+        "normal": [],
+        "expert": []
+      },
+      "3ds": {
+        "normal": [],
+        "expert": []
+      },
+      "switch 2": {
+        "easy": [],
+        "normal": [],
+        "expert": []
+      }
+    },
+    "Corneria > Meteo > Katina > Solar > Macbeth > Area 6 > Venom": {
+      "n64": {
+        "normal": [],
+        "expert": []
+      },
+      "3ds": {
+        "normal": [],
+        "expert": []
+      },
+      "switch 2": {
+        "easy": [],
+        "normal": [],
+        "expert": []
+      }
+    },
+    "Corneria > Sector Y > Katina > Sector X > Titania > Bolse > Venom": {
+      "n64": {
+        "normal": [],
+        "expert": []
+      },
+      "3ds": {
+        "normal": [],
+        "expert": []
+      },
+      "switch 2": {
+        "easy": [],
+        "normal": [],
+        "expert": []
+      }
+    },
+    "Corneria > Sector Y > Katina > Sector X > Macbeth > Bolse > Venom": {
+      "n64": {
+        "normal": [
+          {
+            "name": "Caio",
+            "score": 1149,
+            "levels": [
+              155,
+              166,
+              153,
+              116,
+              183,
+              171,
+              205
+            ],
+            "version": "n64"
+          }
+        ],
+        "expert": []
+      },
+      "3ds": {
+        "normal": [],
+        "expert": []
+      },
+      "switch 2": {
+        "easy": [],
+        "normal": [
+          {
+            "name": "Caio",
+            "score": 1657,
+            "levels": [
+              203,
+              271,
+              241,
+              277,
+              208,
+              191,
+              266
+            ],
+            "version": "switch 2",
+            "recorded_at": "2026-09-02T23:26:21.058071"
+          },
+          {
+            "name": "Caio",
+            "score": 1585,
+            "levels": [
+              196,
+              251,
+              226,
+              266,
+              202,
+              195,
+              249
+            ],
+            "version": "switch 2",
+            "recorded_at": "2026-09-02T01:10:05.955585"
+          },
+          {
+            "name": "Caio",
+            "score": 1546,
+            "levels": [
+              193,
+              236,
+              207,
+              266,
+              189,
+              194,
+              261
+            ],
+            "version": "switch 2",
+            "recorded_at": "2026-09-01T12:15:23.786390"
+          },
+          {
+            "name": "Caio",
+            "score": 1250,
+            "levels": [
+              164,
+              211,
+              189,
+              115,
+              179,
+              174,
+              218
+            ],
+            "version": "switch 2"
+          }
+        ],
+        "expert": []
+      }
+    },
+    "Corneria > Sector Y > Katina > Sector X > Macbeth > Area 6 > Venom": {
+      "n64": {
+        "normal": [],
+        "expert": []
+      },
+      "3ds": {
+        "normal": [],
+        "expert": []
+      },
+      "switch 2": {
+        "easy": [],
+        "normal": [
+          {
+            "name": "Caio",
+            "score": 1936,
+            "levels": [
+              203,
+              277,
+              234,
+              261,
+              193,
+              541,
+              227
+            ],
+            "version": "switch 2",
+            "recorded_at": "2026-09-05T21:42:18.673716"
+          }
+        ],
+        "expert": []
+      }
+    },
+    "Corneria > Sector Y > Katina > Sector X > Sector Z > Bolse > Venom": {
+      "n64": {
+        "normal": [],
+        "expert": []
+      },
+      "3ds": {
+        "normal": [],
+        "expert": []
+      },
+      "switch 2": {
+        "easy": [],
+        "normal": [
+          {
+            "name": "Caio",
+            "score": 1315,
+            "levels": [
+              177,
+              189,
+              184,
+              244,
+              105,
+              191,
+              225
+            ],
+            "version": "switch 2"
+          }
+        ],
+        "expert": []
+      }
+    },
+    "Corneria > Sector Y > Katina > Sector X > Sector Z > Area 6 > Venom": {
+      "n64": {
+        "normal": [],
+        "expert": []
+      },
+      "3ds": {
+        "normal": [],
+        "expert": []
+      },
+      "switch 2": {
+        "easy": [],
+        "normal": [],
+        "expert": [
+          {
+            "name": "Caio",
+            "score": 1651,
+            "levels": [
+              214,
+              224,
+              196,
+              241,
+              107,
+              462,
+              207
+            ],
+            "version": "switch 2",
+            "recorded_at": "2026-09-03T01:16:47.682053"
+          }
+        ]
+      }
+    },
+    "Corneria > Sector Y > Katina > Solar > Macbeth > Bolse > Venom": {
+      "n64": {
+        "normal": [],
+        "expert": []
+      },
+      "3ds": {
+        "normal": [],
+        "expert": []
+      },
+      "switch 2": {
+        "easy": [],
+        "normal": [],
+        "expert": []
+      }
+    },
+    "Corneria > Sector Y > Katina > Solar > Macbeth > Area 6 > Venom": {
+      "n64": {
+        "normal": [],
+        "expert": []
+      },
+      "3ds": {
+        "normal": [],
+        "expert": []
+      },
+      "switch 2": {
+        "easy": [],
+        "normal": [],
+        "expert": []
+      }
+    },
+    "Corneria > Sector Y > Aquas > Zoness > Macbeth > Bolse > Venom": {
+      "n64": {
+        "normal": [],
+        "expert": []
+      },
+      "3ds": {
+        "normal": [],
+        "expert": []
+      },
+      "switch 2": {
+        "easy": [],
+        "normal": [],
+        "expert": []
+      }
+    },
+    "Corneria > Sector Y > Aquas > Zoness > Macbeth > Area 6 > Venom": {
+      "n64": {
+        "normal": [
+          {
+            "name": "Caio",
+            "score": 1617,
+            "levels": [
+              186,
+              177,
+              173,
+              285,
+              180,
+              389,
+              227
+            ],
+            "version": "n64",
+            "recorded_at": "2026-08-28T23:25:04.198642"
+          }
+        ],
+        "expert": []
+      },
+      "3ds": {
+        "normal": [],
+        "expert": []
+      },
+      "switch 2": {
+        "easy": [],
+        "normal": [
+          {
+            "name": "Caio",
+            "score": 1824,
+            "levels": [
+              187,
+              235,
+              174,
+              309,
+              199,
+              493,
+              227
+            ],
+            "version": "switch 2",
+            "recorded_at": "2026-08-20T00:34:52.391022"
+          }
+        ],
+        "expert": [
+          {
+            "name": "Caio",
+            "score": 1932,
+            "levels": [
+              215,
+              236,
+              195,
+              314,
+              211,
+              534,
+              227
+            ],
+            "version": "switch 2",
+            "recorded_at": "2026-09-07T00:45:43.722423"
+          }
+        ]
+      }
+    },
+    "Corneria > Sector Y > Aquas > Zoness > Sector Z > Bolse > Venom": {
+      "n64": {
+        "normal": [],
+        "expert": []
+      },
+      "3ds": {
+        "normal": [],
+        "expert": []
+      },
+      "switch 2": {
+        "easy": [],
+        "normal": [],
+        "expert": []
+      }
+    },
+    "Corneria > Sector Y > Aquas > Zoness > Sector Z > Area 6 > Venom": {
+      "n64": {
+        "normal": [
+          {
+            "name": "Caio",
+            "score": 1432,
+            "levels": [
+              185,
+              150,
+              160,
+              258,
+              100,
+              352,
+              227
+            ],
+            "version": "n64",
+            "recorded_at": "2026-08-18T00:53:07.117855"
+          }
+        ],
+        "expert": []
+      },
+      "3ds": {
+        "normal": [
+          {
+            "name": "Caio",
+            "score": 1498,
+            "levels": [
+              179,
+              175,
+              166,
+              259,
+              102,
+              390,
+              227
+            ],
+            "version": "3ds",
+            "recorded_at": "2026-08-18T23:55:30.652795"
+          }
+        ],
+        "expert": []
+      },
+      "switch 2": {
+        "easy": [],
+        "normal": [
+          {
+            "name": "Caio",
+            "score": 1594,
+            "levels": [
+              178,
+              184,
+              161,
+              272,
+              124,
+              448,
+              227
+            ],
+            "version": "switch 2"
+          }
+        ],
+        "expert": []
+      }
+    },
+    "All Levels (3DS / Switch 2)": {
+      "3ds": {
+        "normal": [],
+        "expert": []
+      },
+      "switch 2": {
+        "easy": [],
+        "normal": [
+          {
+            "name": "Caio",
+            "score": 3580,
+            "levels": [
+              187,
+              402,
+              250,
+              74,
+              206,
+              156,
+              305,
+              256,
+              177,
+              120,
+              201,
+              135,
+              185,
+              473,
+              226,
+              227
+            ],
+            "version": "switch 2",
+            "recorded_at": "2026-08-20T23:29:09.529526"
+          }
+        ],
+        "expert": []
+      }
+    }
+  }
+}
